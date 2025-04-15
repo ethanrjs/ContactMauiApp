@@ -296,3 +296,4 @@ C:\Users\ethan\Downloads\ContactMauiApp\ContactMauiApp\obj\Debug\net9.0-maccatal
 C:\Users\ethan\Downloads\ContactMauiApp\ContactMauiApp\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\ContactM.E770E23B.Up2Date
 C:\Users\ethan\Downloads\ContactMauiApp\ContactMauiApp\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\ContactMauiApp.genruntimeconfig.cache
 C:\Users\ethan\Downloads\ContactMauiApp\ContactMauiApp\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\ref\ContactMauiApp.dll
+C:\Users\ethan\Downloads\ContactMauiApp\ContactMauiApp\obj\Debug\net9.0-maccatalyst\maccatalyst-x64\ContactMauiApp.sourcelink.json

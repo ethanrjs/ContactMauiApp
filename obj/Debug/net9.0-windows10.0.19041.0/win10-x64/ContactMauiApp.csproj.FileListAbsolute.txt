@@ -470,3 +470,4 @@ C:\Users\ethan\Downloads\ContactMauiApp\ContactMauiApp\obj\Debug\net9.0-windows1
 C:\Users\ethan\Downloads\ContactMauiApp\ContactMauiApp\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\qualifiers.txt
 C:\Users\ethan\Downloads\ContactMauiApp\ContactMauiApp\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 C:\Users\ethan\Downloads\ContactMauiApp\ContactMauiApp\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
+C:\Users\ethan\Downloads\ContactMauiApp\ContactMauiApp\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\ContactMauiApp.sourcelink.json

@@ -1342,3 +1342,4 @@ C:\Users\ethan\Downloads\ContactMauiApp\ContactMauiApp\obj\Debug\net9.0-android\
 C:\Users\ethan\Downloads\ContactMauiApp\ContactMauiApp\obj\Debug\net9.0-android\stamp\_GenerateJavaStubs.stamp
 C:\Users\ethan\Downloads\ContactMauiApp\ContactMauiApp\obj\Debug\net9.0-android\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\ethan\Downloads\ContactMauiApp\ContactMauiApp\obj\Debug\net9.0-android\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\ethan\Downloads\ContactMauiApp\ContactMauiApp\obj\Debug\net9.0-android\ContactMauiApp.sourcelink.json
