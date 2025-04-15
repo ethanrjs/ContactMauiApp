@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="ContactMauiApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:ContactMauiApp.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="ContactMauiApp">
+
+    <!-- Set the initial page to ContactsPage -->
+    <ShellContent
+        Title="Contacts"
+        ContentTemplate="{DataTemplate local:ContactsPage}"
+        Route="ContactsPage" />
+
+    <!-- Although we register routes in MauiProgram.cs for DI-based navigation,
+         defining them here can also work, especially for basic Shell structures.
+         However, registering in MauiProgram is generally preferred for consistency
+         when using GoToAsync with page names/routes. -->
+
+</Shell>

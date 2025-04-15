@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ContactMauiApp.ViewModels"
+             x:Class="ContactMauiApp.Views.AddContactPage"
+             x:DataType="vm:AddContactViewModel"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <Border HorizontalOptions="Center"
+                MaximumWidthRequest="900"
+                Padding="20" Margin="10">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="0"/>
+            </Border.StrokeShape>
+
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Add New Contact" FontSize="Title" HorizontalOptions="Center" />
+
+                <Entry Placeholder="Name" Text="{Binding Name}" />
+                <Entry Placeholder="Email" Text="{Binding Email}" Keyboard="Email" />
+                <Entry Placeholder="Phone Number" Text="{Binding PhoneNumber}" Keyboard="Telephone" />
+                <Editor Placeholder="Description" Text="{Binding Description}" HeightRequest="100" AutoSize="Disabled" />
+
+                <Button Text="Save Contact" Command="{Binding SaveContactAsyncCommand}" IsEnabled="{Binding IsNotBusy}" Margin="0,20,0,0" />
+                <Button Text="Cancel" Command="{Binding GoBackAsyncCommand}" IsEnabled="{Binding IsNotBusy}" BackgroundColor="Gray" Margin="0,5,0,0"/>
+
+                <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" HorizontalOptions="Center" VerticalOptions="Center" />
+            </VerticalStackLayout>
+
+        </Border>
+    </ScrollView>
+
+</ContentPage>

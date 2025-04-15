@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ContactMauiApp.ViewModels"
+             xmlns:local="clr-namespace:ContactMauiApp.Views"
+             x:Class="ContactMauiApp.Views.ContactDetailPage"
+             x:DataType="vm:ContactDetailViewModel"
+             Title="{Binding Title}">
+
+    <ScrollView>
+        <Border HorizontalOptions="Center"
+                MaximumWidthRequest="900"
+                Padding="20" Margin="10">
+             <Border.StrokeShape>
+                <RoundRectangle CornerRadius="0"/>
+            </Border.StrokeShape>
+
+            <VerticalStackLayout Spacing="10">
+
+                <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" HorizontalOptions="Center" />
+
+                <!-- Display Mode -->
+                <VerticalStackLayout IsVisible="{Binding IsEditing, Converter={StaticResource InverseBoolConverter}}" Spacing="10">
+                    <Label Text="Name:" FontAttributes="Bold" />
+                    <Label Text="{Binding Contact.Name}" FontSize="Medium"/>
+
+                    <Label Text="Email:" FontAttributes="Bold" Margin="0,10,0,0"/>
+                    <Label Text="{Binding Contact.Email}" FontSize="Medium"/>
+
+                    <Label Text="Phone:" FontAttributes="Bold" Margin="0,10,0,0"/>
+                    <Label Text="{Binding Contact.PhoneNumber}" FontSize="Medium"/>
+
+                    <Label Text="Description:" FontAttributes="Bold" Margin="0,10,0,0"/>
+                    <Label Text="{Binding Contact.Description}" FontSize="Medium"/>
+                </VerticalStackLayout>
+
+                <!-- Editing Mode -->
+                <VerticalStackLayout IsVisible="{Binding IsEditing}" Spacing="10">
+                     <Label Text="Name:" FontAttributes="Bold" />
+                     <Entry Text="{Binding Contact.Name}" Placeholder="Name"/>
+
+                     <Label Text="Email:" FontAttributes="Bold" Margin="0,10,0,0"/>
+                     <Entry Text="{Binding Contact.Email}" Placeholder="Email" Keyboard="Email"/>
+
+                     <Label Text="Phone:" FontAttributes="Bold" Margin="0,10,0,0"/>
+                     <Entry Text="{Binding Contact.PhoneNumber}" Placeholder="Phone Number" Keyboard="Telephone"/>
+
+                     <Label Text="Description:" FontAttributes="Bold" Margin="0,10,0,0"/>
+                     <Editor Text="{Binding Contact.Description}" Placeholder="Description" HeightRequest="100" AutoSize="Disabled"/>
+                </VerticalStackLayout>
+
+                <!-- Action Buttons -->
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,20,0,0">
+                     <!-- Edit Button (Visible when NOT editing) -->
+                     <Button Grid.Column="0" Text="Edit" Command="{Binding ToggleEditCommand}" IsVisible="{Binding IsEditing, Converter={StaticResource InverseBoolConverter}}" IsEnabled="{Binding IsNotBusy}"/>
+
+                     <!-- Save Button (Visible when editing) -->
+                     <Button Grid.Column="0" Text="Save" Command="{Binding SaveChangesAsyncCommand}" IsVisible="{Binding IsEditing}" IsEnabled="{Binding IsNotBusy}"/>
+
+                     <!-- Back / Cancel Edit Button -->
+                     <Button Grid.Column="1" BackgroundColor="Gray" IsEnabled="{Binding IsNotBusy}">
+                         <Button.Style>
+                             <Style TargetType="Button">
+                                <Setter Property="Text" Value="Back" />
+                                <Setter Property="Command" Value="{Binding GoBackAsyncCommand}" />
+                                <Style.Triggers>
+                                    <DataTrigger TargetType="Button" Binding="{Binding IsEditing}" Value="True">
+                                        <Setter Property="Text" Value="Cancel Edit" />
+                                        <Setter Property="Command" Value="{Binding ToggleEditCommand}" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                             </Style>
+                         </Button.Style>
+                     </Button>
+
+                </Grid>
+
+            </VerticalStackLayout>
+        </Border>
+    </ScrollView>
+
+    <ContentPage.Resources>
+        <!-- Simple Inverse Boolean Converter -->
+        <ResourceDictionary>
+            <local:InverseBoolConverter x:Key="InverseBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+</ContentPage>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:ContactMauiApp.ViewModels"
+             xmlns:model="clr-namespace:ContactMauiApp.Models"
+             x:Class="ContactMauiApp.Views.ContactsPage"
+             x:DataType="vm:ContactsViewModel"
+             Title="{Binding Title}">
+
+    <Grid RowDefinitions="Auto, *, Auto"
+          HorizontalOptions="Center"
+          MaximumWidthRequest="700"
+          Padding="10">
+
+        <Label Grid.Row="0" Text="Contact List" FontSize="Header" Padding="10" HorizontalTextAlignment="Center"/>
+
+        <CollectionView Grid.Row="1"
+                        ItemsSource="{Binding Contacts}"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding SelectedContact, Mode=TwoWay}"
+                        EmptyView="No contacts found.">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Contact">
+                    <Frame Padding="10" Margin="5" CornerRadius="5" BorderColor="LightGray" HasShadow="True">
+                         <VerticalStackLayout>
+                            <Label Text="{Binding Name}" FontSize="Medium" FontAttributes="Bold"/>
+                            <Label Text="{Binding Email}" FontSize="Small" TextColor="Gray"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button Grid.Row="2"
+                Text="Add New Contact"
+                Command="{Binding GoToAddContactAsyncCommand}"
+                Margin="20"/>
+
+    </Grid>
+
+</ContentPage>
